@@ -1,0 +1,199 @@
+You are a senior full-stack software engineer. Build a scalable community-based e-commerce web platform for a municipality (Lawra) that connects landlords, artisans, and service providers with users.
+
+## PROJECT OVERVIEW
+The platform should allow:
+1. Landlords to list houses for rent
+2. Artisans to showcase and sell products/services
+3. Service providers (e.g., electricians, plumbers) to offer on-demand services
+4. Users to browse listings without login but must register to book or request services
+
+## TECH STACK
+Frontend:
+- React (Next.js preferred) OR WordPress-compatible frontend (if PHP)
+- Tailwind CSS for styling
+
+Backend:
+- Node.js (Express) OR Laravel (PHP)
+- RESTful API architecture
+
+Database:
+- PostgreSQL or MySQL
+
+Integrations:
+- Google Maps API (location display)
+- Mobile Money APIs (MTN, Vodafone, AirtelTigo)
+- Email/SMS notification service
+
+---
+
+## CORE FEATURES
+
+### 1. AUTHENTICATION & USER ROLES
+Implement JWT-based authentication with roles:
+- User (customer)
+- Landlord
+- Artisan / Service Provider
+- Admin
+
+Features:
+- Register/Login (email or phone)
+- Role-based access control (RBAC)
+
+---
+
+### 2. LANDLORD MODULE
+- Create, update, delete property listings
+- Upload images/videos
+- Add:
+  - Price
+  - Utilities (water, electricity, etc.)
+  - Description
+  - GPS location (latitude, longitude)
+  - Nearby landmarks (market, hospital)
+
+- Users can:
+  - View property
+  - Request viewing / booking
+
+---
+
+### 3. ARTISAN MODULE
+- Create product/service listings
+- Include:
+  - Images
+  - Price
+  - Description
+- Allow users to:
+  - View listings
+  - Place orders or inquiries
+
+---
+
+### 4. SERVICE PROVIDER MODULE
+- Set availability (calendar-based)
+- Define service pricing
+- Users can:
+  - Request immediate service OR
+  - Schedule service
+
+---
+
+### 5. BOOKING SYSTEM
+- Users must be logged in to:
+  - Book houses
+  - Hire artisans/services
+- Include:
+  - Booking status (pending, confirmed, completed)
+  - Notifications
+
+---
+
+### 6. PAYMENT SYSTEM
+- Integrate Mobile Money APIs
+- Support:
+  - Payment for bookings
+  - Commission deduction
+- Maintain transaction records
+
+---
+
+### 7. LOCATION SYSTEM
+- Integrate Google Maps API
+- Display:
+  - Property location
+  - Distance to landmarks
+
+---
+
+### 8. MESSAGING SYSTEM
+- Real-time or async messaging:
+  - User ↔ landlord
+  - User ↔ artisan
+- Notifications via:
+  - Email or SMS
+
+---
+
+### 9. ADMIN DASHBOARD
+- Approve/reject landlords and artisans
+- Moderate listings
+- View analytics:
+  - Users
+  - Listings
+  - Transactions
+
+---
+
+## DATABASE DESIGN (MINIMUM TABLES)
+
+Users:
+- id, name, email, phone, password, role
+
+Properties:
+- id, landlord_id, title, description, price, location_lat, location_lng, utilities, images
+
+ArtisanListings:
+- id, artisan_id, title, description, price, images
+
+Services:
+- id, provider_id, service_name, price, availability
+
+Bookings:
+- id, user_id, service_id/property_id, status, date
+
+Payments:
+- id, booking_id, amount, status, method
+
+Messages:
+- id, sender_id, receiver_id, message, timestamp
+
+---
+
+## API ENDPOINTS (EXAMPLES)
+
+Auth:
+- POST /api/register
+- POST /api/login
+
+Properties:
+- GET /api/properties
+- POST /api/properties
+- GET /api/properties/:id
+
+Bookings:
+- POST /api/bookings
+- GET /api/bookings/user
+
+---
+
+## NON-FUNCTIONAL REQUIREMENTS
+- Responsive design (mobile-first)
+- Secure authentication (hashed passwords, JWT)
+- Scalable modular architecture
+- Clean, maintainable code
+
+---
+
+## DELIVERABLES
+- Full backend API
+- Frontend UI pages
+- Database schema
+- Sample seed data
+
+---
+
+## CODING INSTRUCTIONS
+- Use clean architecture principles
+- Separate concerns (controllers, services, models)
+- Add comments where necessary
+- Validate all inputs
+- Handle errors properly
+
+Start by:
+1. Setting up project structure
+2. Creating authentication system
+3. Designing database schema
+4. Building REST API
+5. Connecting frontend
+
+Generate code step-by-step.

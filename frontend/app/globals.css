@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply transition-all duration-300;
+  }
+}
+
+/* Modern Effects */
+@layer components {
+  /* Glassmorphism effects */
+  .glass {
+    @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-gray-900/80 border border-white/10 shadow-xl;
+  }
+
+  .glass-primary {
+    @apply backdrop-blur-md bg-primary-500/10 border border-primary-300/20 shadow-lg;
+  }
+
+  /* Depth & Shadow effects */
+  .shadow-sm-modern {
+    @apply shadow-[0_1px_2px_rgba(0,0,0,0.05)];
+  }
+
+  .shadow-md-modern {
+    @apply shadow-[0_4px_12px_rgba(0,0,0,0.08)];
+  }
+
+  .shadow-lg-modern {
+    @apply shadow-[0_10px_28px_rgba(0,0,0,0.12)];
+  }
+
+  .shadow-xl-modern {
+    @apply shadow-[0_15px_40px_rgba(0,0,0,0.15)];
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-600 to-primary-800;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-secondary-500 to-secondary-700;
+  }
+
+  .gradient-mixed {
+    @apply bg-gradient-to-br from-primary-600 via-purple-600 to-secondary-500;
+  }
+
+  /* Blur & Backdrop effects */
+  .blur-bg {
+    @apply backdrop-blur-sm bg-white/50;
+  }
+
+  .blur-bg-dark {
+    @apply backdrop-blur-sm bg-black/50;
+  }
+
+  /* Modern buttons */
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+
+  .btn-loading {
+    @apply opacity-75 cursor-not-allowed;
+  }
+
+  /* Modern input fields */
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-white/50;
+  }
+
+  .input-field-glass {
+    @apply w-full px-3 py-2 rounded-lg backdrop-blur-sm bg-white/80 border border-white/40 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+
+  /* Modern card */
+  .card {
+    @apply bg-white rounded-lg shadow-md-modern p-6 transition-all duration-300 hover:shadow-lg-modern;
+  }
+
+  .card-modern {
+    @apply bg-white rounded-xl shadow-md-modern p-6 transition-all duration-300 hover:shadow-lg-modern hover:translate-y-[-2px];
+  }
+
+  .card-glass {
+    @apply glass rounded-xl p-6 transition-all duration-300 hover:shadow-lg-modern;
+  }
+
+  /* Loading states */
+  .pulse-modern {
+    @apply animate-pulse;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded-lg;
+  }
+
+  .skeleton-animate {
+    @apply bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-danger {
+    @apply badge bg-red-100 text-red-800;
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-slideInUp {
+    animation: slideInUp 0.4s ease-out;
+  }
+
+  .animate-slideInDown {
+    animation: slideInDown 0.4s ease-out;
+  }
+
+  .animate-slideInLeft {
+    animation: slideInLeft 0.4s ease-out;
+  }
+
+  .animate-slideInRight {
+    animation: slideInRight 0.4s ease-out;
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-fadeOut {
+    animation: fadeOut 0.3s ease-out;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-gentle {
+    animation: pulse-gentle 2s ease-in-out infinite;
+  }
+
+  .animate-flip {
+    animation: flip 0.6s ease-in-out;
+  }
+
+  .animate-popIn {
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Text transition animations */
+  .text-fade {
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Link animations */
+  .link-hover {
+    @apply relative inline-block transition-all duration-300 hover:text-primary-600;
+  }
+
+  .link-hover::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300;
+    content: '';
+  }
+
+  .link-hover:hover::after {
+    @apply w-full;
+  }
+
+  /* Stagger animation for list items */
+  .stagger-item {
+    opacity: 0;
+    animation: slideInUp 0.5s ease-out forwards;
+  }
+
+  .stagger-item:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-item:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-item:nth-child(3) { animation-delay: 0.15s; }
+  .stagger-item:nth-child(4) { animation-delay: 0.2s; }
+  .stagger-item:nth-child(5) { animation-delay: 0.25s; }
+  .stagger-item:nth-child(n+6) { animation-delay: calc(0.05s * (n - 5)); }
+
+  /* Smooth scroll */
+  .scroll-smooth {
+    scroll-behavior: smooth !important;
+  }
+
+  /* Perspective for 3D effects */
+  .perspective {
+    perspective: 1000px;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Glow effect on focus */
+  .focus-glow {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white transition-all duration-200;
+  }
+}

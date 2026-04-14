@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+package-lock.json
+npm-debug.log
+
+# Environment variables (don't commit sensitive data)
+.env
+.env.local
+.env.*.local
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# Misc
+.cache/
+.turbo/
+.vercel/
+
+# Bootstrap files (if development only)
+bootstrap/
+script.js
+style.css
+index.html
