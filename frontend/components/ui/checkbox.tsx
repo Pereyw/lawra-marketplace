@@ -1,4 +1,5 @@
-import { Checkbox as HeadlessCheckbox } from '@headlessui/react';
+'use client';
+
 import { CheckIcon } from '@heroicons/react/24/solid';
 
 interface CheckboxProps {
@@ -10,13 +11,23 @@ interface CheckboxProps {
 
 export function Checkbox({ id, checked, onCheckedChange, className = '' }: CheckboxProps) {
   return (
-    <HeadlessCheckbox
-      id={id}
-      checked={checked}
-      onChange={onCheckedChange}
-      className={`group size-4 rounded border border-gray-300 bg-white data-[checked]:bg-primary-600 data-[checked]:border-primary-600 ${className}`}
-    >
-      <CheckIcon className="hidden size-4 fill-white group-data-[checked]:block" />
-    </HeadlessCheckbox>
+    <label className={`flex items-center cursor-pointer ${className}`}>
+      <input
+        id={id}
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onCheckedChange(e.target.checked)}
+        className="sr-only"
+      />
+      <div
+        className={`flex items-center justify-center w-4 h-4 rounded border-2 transition-colors ${
+          checked
+            ? 'bg-primary-600 border-primary-600'
+            : 'border-gray-300 bg-white hover:border-primary-400'
+        }`}
+      >
+        {checked && <CheckIcon className="w-3 h-3 fill-white" />}
+      </div>
+    </label>
   );
 }

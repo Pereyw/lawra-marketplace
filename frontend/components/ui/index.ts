@@ -5,6 +5,8 @@ export { Card, CardHeader, CardTitle, CardContent } from './card';
 export { Button } from './button';
 export { Input } from './input';
 export { Checkbox } from './checkbox';
+export { Label } from './label';
+export { RadioGroup, RadioGroupItem } from './radio-group';
 
 // New Modern Components
 export { Skeleton, SkeletonCard, SkeletonProductCard, SkeletonGrid } from './skeleton';
