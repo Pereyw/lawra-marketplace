@@ -54,7 +54,7 @@ export function TabsTrigger({ value, children }: { value: string; children: Reac
   );
 }
 
-export function TabsContent({ value, children }: { value: string; children: React.ReactNode }) {
+export function TabsContent({ value, children, className = '' }: { value: string; children: React.ReactNode; className?: string }) {
   const context = useContext(TabsContext);
   if (!context) return null;
 
@@ -63,7 +63,7 @@ export function TabsContent({ value, children }: { value: string; children: Reac
   if (activeTab !== value) return null;
 
   return (
-    <div className="mt-6">
+    <div className={`mt-6 ${className}`}>
       {children}
     </div>
   );

@@ -81,7 +81,7 @@ export const useAuth = (): UseAuthReturn => {
       setIsLoading(true);
       setError(null);
       const response = await authApi.login({ email, password });
-      const { token, refreshToken: refreshTokenValue } = response.data.data;
+      const { token, refreshToken: refreshTokenValue } = (response.data.data as any);
 
       AuthManager.setAuthTokens(token, refreshTokenValue);
       const currentUser = AuthManager.getCurrentUser();
@@ -107,7 +107,7 @@ export const useAuth = (): UseAuthReturn => {
       setIsLoading(true);
       setError(null);
       const response = await authApi.register(data);
-      const { token, refreshToken: refreshTokenValue } = response.data.data;
+      const { token, refreshToken: refreshTokenValue } = (response.data.data as any);
 
       AuthManager.setAuthTokens(token, refreshTokenValue);
       const currentUser = AuthManager.getCurrentUser();
@@ -145,7 +145,7 @@ export const useAuth = (): UseAuthReturn => {
   const refreshToken = useCallback(async () => {
     try {
       const response = await authApi.refreshToken();
-      const { token, refreshToken: refreshTokenValue } = response.data.data;
+      const { token, refreshToken: refreshTokenValue } = (response.data.data as any);
 
       AuthManager.setAuthTokens(token, refreshTokenValue);
       const currentUser = AuthManager.getCurrentUser();

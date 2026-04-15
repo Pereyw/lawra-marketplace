@@ -138,7 +138,7 @@ export function FeaturedListingsComponent({
               ))}
             </select>
             {errors.duration && (
-              <p className="text-red-500 text-sm">{errors.duration.message}</p>
+              <p className="text-red-500 text-sm">{errors.duration.message?.toString()}</p>
             )}
           </div>
 

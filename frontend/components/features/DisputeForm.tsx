@@ -74,7 +74,7 @@ export function DisputeForm({
             maxLength={100}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
           />
-          {errors.title && <p className="text-red-500 text-sm">{errors.title.message}</p>}
+          {errors.title && <p className="text-red-500 text-sm">{errors.title.message?.toString()}</p>}
         </div>
 
         <div>
@@ -90,7 +90,7 @@ export function DisputeForm({
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
           />
           {errors.description && (
-            <p className="text-red-500 text-sm">{errors.description.message}</p>
+            <p className="text-red-500 text-sm">{errors.description.message?.toString()}</p>
           )}
         </div>
 

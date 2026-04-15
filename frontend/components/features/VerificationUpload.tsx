@@ -18,7 +18,7 @@ export function VerificationUpload() {
   const checkStatus = async () => {
     try {
       const response = await verificationsApi.getStatus();
-      setStatus(response.data.data.status);
+      setStatus((response.data.data as any).status);
     } catch (err: any) {
       setStatus('not_submitted');
     }
@@ -122,7 +122,7 @@ export function VerificationUpload() {
               <option value="passport">Passport</option>
               <option value="drivers_license">Driver's License</option>
             </select>
-            {errors.idType && <p className="text-red-500 text-sm">{errors.idType.message}</p>}
+            {errors.idType && <p className="text-red-500 text-sm">{errors.idType.message?.toString()}</p>}
           </div>
 
           <div>
@@ -133,7 +133,7 @@ export function VerificationUpload() {
               placeholder="Enter your ID number"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {errors.idNumber && <p className="text-red-500 text-sm">{errors.idNumber.message}</p>}
+            {errors.idNumber && <p className="text-red-500 text-sm">{errors.idNumber.message?.toString()}</p>}
           </div>
 
           <div>
@@ -148,7 +148,7 @@ export function VerificationUpload() {
               />
               <p className="text-xs text-gray-500 mt-2">PDF, JPG, PNG up to 5MB</p>
             </div>
-            {errors.document && <p className="text-red-500 text-sm">{errors.document.message}</p>}
+            {errors.document && <p className="text-red-500 text-sm">{errors.document.message?.toString()}</p>}
           </div>
 
           <button

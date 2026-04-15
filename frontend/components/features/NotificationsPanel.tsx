@@ -39,10 +39,10 @@ export function NotificationsPanel() {
     try {
       setLoading(true);
       const response = await notificationsApi.getAll(50, 0);
-      setAllNotifications(response.data.data.notifications || []);
+      setAllNotifications((response.data.data as any).notifications || []);
 
       const unreadResponse = await notificationsApi.getUnreadCount();
-      setUnreadCount(unreadResponse.data.data.count);
+      setUnreadCount((unreadResponse.data.data as any).count);
     } catch (error) {
       console.error('Failed to load notifications:', error);
     } finally {

@@ -51,7 +51,7 @@ export function PaymentForm({
         description,
       });
 
-      const paymentId = paymentResponse.data.data.paymentId;
+      const paymentId = (paymentResponse.data.data as any).paymentId;
 
       // Second step: Process payment with mock provider
       const mockRequest = {
@@ -80,7 +80,7 @@ export function PaymentForm({
         amount: mockResponse.amount,
       });
 
-      if (verifyResponse.data.data.verified) {
+      if ((verifyResponse.data.data as any).verified) {
         setSuccess(`Payment successful! Transaction: ${mockResponse.transactionId}`);
         onPaymentSuccess?.(mockResponse.transactionId);
 
@@ -177,7 +177,7 @@ export function PaymentForm({
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.customerName && (
-              <p className="text-red-500 text-sm">{errors.customerName.message}</p>
+              <p className="text-red-500 text-sm">{errors.customerName.message?.toString()}</p>
             )}
           </div>
 
@@ -195,7 +195,7 @@ export function PaymentForm({
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.customerPhone && (
-              <p className="text-red-500 text-sm">{errors.customerPhone.message}</p>
+              <p className="text-red-500 text-sm">{errors.customerPhone.message?.toString()}</p>
             )}
           </div>
         </div>
@@ -214,7 +214,7 @@ export function PaymentForm({
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.customerEmail && (
-            <p className="text-red-500 text-sm">{errors.customerEmail.message}</p>
+            <p className="text-red-500 text-sm">{errors.customerEmail.message?.toString()}</p>
           )}
         </div>
 
